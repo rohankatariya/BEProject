@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/house.css" rel="stylesheet" />
+    <title>SubmitRating</title>
+</head>
+<body>
+    <div class="container"> 
+        <div class="row" id="rt">
+            Please help us with your precious feedback about the product.
+            @using (Html.BeginForm("SubmitRating", "Home", FormMethod.Post))
+            {
+                @Html.Label("Please Select Ratings for the product :")@Html.DropDownList("l1", (IEnumerable<SelectListItem>)ViewBag.l1, new { @class = "dropd" })<br />
+                <button class="button">Submit</button>
+            }
+        </div>
+
+    </div>
+</body>
+</html>

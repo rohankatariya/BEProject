@@ -1,0 +1,76 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+    <div style="padding:10px">
+        <form action="@Url.Action("SubmitRating","Home")">
+            <h1>Payement Portal</h1>
+            First Name: <input type="text" name="first name"><br />
+            Last Name:  <input type="text" name="Last Name"><br />
+            City:<br /><input name="City" list="Cities" placeholder="City">
+            <datalist id="Cities">
+                <option value="Pune">
+                <option value="Mumbai">
+                <option value="Chennai">
+                <option value="Nashik">
+                <option value="Nagpur">
+                <option value="Delhi">
+                <option value="Bangalore">
+            </datalist>
+            <br />
+            State:<br />
+            <select>
+                <option value="Select Your state">Select</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Andra Pradesh">Andra Pradesh</option>
+                <option value="Gujrat">Gujrat</option>
+                <option value="Goa">Goa</option>
+            </select><br />
+            Country:<br /><input name="country" list="Countries" placeholder="Country">
+            <datalist id="Countries">
+                <option value="India">
+                <option value="Australia">
+                <option value="USA">
+                <option value="Iceland">
+                <option value="Nagpur">
+                <option value="Indonesia">
+                <option value="Iran">
+                <option value="Haiti">
+                <option value="Hungary">
+                <option value="Germany">
+                <option value="Malaysia">
+                <option value="Nepal">
+                <option value="Netherlands">
+                <option value="New Zealand">
+            </datalist><br />
+            <div>
+                Payment Mode:<br />
+                <input type="radio" name="cardpayment" />
+                <img src="~/img/all.png" height="5%" style="width:20%"><br />
+                <div style="padding:20px;">
+                    Credit Card Number:<br /><input type="text" name="Credit Card Number"><br />
+                    Card Verification Number:<br /><input type="text" name="CV Number"><br />
+                    Expiration Date:<br /><input type="date" name="expiry">
+                </div>
+                <input type="radio" name="cardpayment"><img src="~/img/netbank.png" style="width:10%">
+                <input type="radio" name="cardpayment"><img src="~/img/paypal.jpeg" style="width:10%">
+                <br />
+                <button>Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

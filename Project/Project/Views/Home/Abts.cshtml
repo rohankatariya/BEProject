@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>cont</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/house.css" rel="stylesheet" />
+    <style type="text/css">
+        #pass1 {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .f1 {
+            height: 40px;
+            color: white;
+            padding-top: 0.5px;
+            padding-right: 5px;
+            height: 450px;
+            background-image: url('../img/home.jpg');
+            background-position: center center bottom;
+            background-size: cover;
+            min-width: 1362px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid ">
+        <div class="row">
+            <nav class="navbar-inverse navbar-fixed-top" style="opacity:0.8;">
+                <div class="col-sm-12 btn-group">
+                    <h4>
+                        <b><i id="i1" style="color:white">MOB Recommender</i></b><span style="color:white" class="glyphicon glyphicon-home"></span>
+                       <a href="@Url.Action("LogIn","Home")"><input value="Home" id="b2" class="btn"></a>
+                        <a href="@Url.Action("Serv","Home")"><input value="Services" id="b2" class="btn"></a>
+                        <a href="@Url.Action("Abts","Home")"><input value="About Us" id="b3" class="btn"></a>
+                        <a href="@Url.Action("cont","Home")"><input value="Contact us " id="b4" class="btn"></a>
+                     </h4>
+                </div>
+            </nav>
+        </div>
+        <div class="row f1">
+        </div>
+        <div class="row" style="padding-left:20px;">
+            <h1>Why US</h1><br />
+            Our system online event recommendation using collaborative filtering gives customers best<br /> 
+            recommended venues,caterings,etc. for their required events.<br />
+            Considering clients budget and other necessary input,our system recommends best venues thereby<br /> 
+            making the event joyous and full of entertainment.Thereby it reduces overall tedious <br />
+            tasks involved in searching halls,vendors,etc. This is like yellow pages for vendors in a <br />
+            country first time So do book your events with our site and you can get discounts and many<br />
+             more offers!<br />
+
+            Please click on contact us for enquiry or call us.
+        </div>
+        <div class="row">
+            <div class="col-sm-12" id="f5" style="color:white;">
+                Copy right reserved
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

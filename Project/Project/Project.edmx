@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Project.dbo.Halls_data' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Halls_data">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ProductPriceRange" Type="int" />
+          <Property Name="ProductCapacityRange" Type="int" />
+          <Property Name="ProductLocation" Type="nvarchar" MaxLength="20" />
+          <Property Name="ProductAddress" Type="nvarchar" MaxLength="80" />
+          <Property Name="ProductImagePath" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProductImagePath1" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProductImagePath2" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProductImagePath3" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProductImagePath4" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProductDetails" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="LoginRegTable">
+          <Key>
+            <PropertyRef Name="usrid" />
+          </Key>
+          <Property Name="usrid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usrFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="usrLastName" Type="varchar" MaxLength="50" />
+          <Property Name="usrEmail" Type="varchar" MaxLength="50" />
+          <Property Name="usrPasswd" Type="varchar" MaxLength="50" />
+          <Property Name="usrDOB" Type="date" />
+          <Property Name="usrCity" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProductTable">
+          <Key>
+            <PropertyRef Name="Productid" />
+          </Key>
+          <Property Name="Productid" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductPriceRange" Type="int" Nullable="false" />
+          <Property Name="ProductCapacityRange" Type="int" Nullable="false" />
+          <Property Name="ProductLocation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductImagePath" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="ProductImagePath1" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="ProductImagePath2" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="ProductImagePath3" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="ProductImagePath4" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="ProductDetails" Type="varchar" MaxLength="1500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRegistration">
+          <Key>
+            <PropertyRef Name="srno" />
+          </Key>
+          <Property Name="srno" Type="int" Nullable="false" />
+          <Property Name="usrid" Type="int" Nullable="false" />
+          <Property Name="Productid" Type="int" Nullable="false" />
+          <Property Name="ProductLocation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ratings" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usrMemberTable">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="int" Nullable="false" />
+          <Property Name="usrid" Type="int" Nullable="false" />
+          <Property Name="MemberName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberEvent" Type="int" Nullable="false" />
+          <Property Name="MemberDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ProjectModelStoreContainer">
+          <EntitySet Name="LoginRegTable" EntityType="Self.LoginRegTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTable" EntityType="Self.ProductTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRegistration" EntityType="Self.UserRegistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usrMemberTable" EntityType="Self.usrMemberTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Halls_data" EntityType="Self.Halls_data" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Halls_data].[ProductId] AS [ProductId], 
+    [Halls_data].[ProductName] AS [ProductName], 
+    [Halls_data].[ProductPriceRange] AS [ProductPriceRange], 
+    [Halls_data].[ProductCapacityRange] AS [ProductCapacityRange], 
+    [Halls_data].[ProductLocation] AS [ProductLocation], 
+    [Halls_data].[ProductAddress] AS [ProductAddress], 
+    [Halls_data].[ProductImagePath] AS [ProductImagePath], 
+    [Halls_data].[ProductImagePath1] AS [ProductImagePath1], 
+    [Halls_data].[ProductImagePath2] AS [ProductImagePath2], 
+    [Halls_data].[ProductImagePath3] AS [ProductImagePath3], 
+    [Halls_data].[ProductImagePath4] AS [ProductImagePath4], 
+    [Halls_data].[ProductDetails] AS [ProductDetails]
+    FROM [dbo].[Halls_data] AS [Halls_data]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LoginRegTable">
+          <Key>
+            <PropertyRef Name="usrid" />
+          </Key>
+          <Property Name="usrid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usrFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usrLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usrEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usrPasswd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usrDOB" Type="DateTime" Precision="0" />
+          <Property Name="usrCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductTable">
+          <Key>
+            <PropertyRef Name="Productid" />
+          </Key>
+          <Property Name="Productid" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductPriceRange" Type="Int32" Nullable="false" />
+          <Property Name="ProductCapacityRange" Type="Int32" Nullable="false" />
+          <Property Name="ProductLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductImagePath" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductImagePath1" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductImagePath2" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductImagePath3" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductImagePath4" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductDetails" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRegistration">
+          <Key>
+            <PropertyRef Name="srno" />
+          </Key>
+          <Property Name="srno" Type="Int32" Nullable="false" />
+          <Property Name="usrid" Type="Int32" Nullable="false" />
+          <Property Name="Productid" Type="Int32" Nullable="false" />
+          <Property Name="ProductLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ratings" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usrMemberTable">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="usrid" Type="Int32" Nullable="false" />
+          <Property Name="MemberName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MemberEvent" Type="Int32" Nullable="false" />
+          <Property Name="MemberDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Halls_data">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPriceRange" Type="Int32" />
+          <Property Name="ProductCapacityRange" Type="Int32" />
+          <Property Name="ProductLocation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProductAddress" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImagePath1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImagePath2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImagePath3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImagePath4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDetails" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ProjectEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LoginRegTables" EntityType="Self.LoginRegTable" />
+          <EntitySet Name="ProductTables" EntityType="Self.ProductTable" />
+          <EntitySet Name="UserRegistrations" EntityType="Self.UserRegistration" />
+          <EntitySet Name="usrMemberTables" EntityType="Self.usrMemberTable" />
+          <EntitySet Name="Halls_data" EntityType="Self.Halls_data" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectEntities1">
+          <EntitySetMapping Name="LoginRegTables">
+            <EntityTypeMapping TypeName="ProjectModel.LoginRegTable">
+              <MappingFragment StoreEntitySet="LoginRegTable">
+                <ScalarProperty Name="usrid" ColumnName="usrid" />
+                <ScalarProperty Name="usrFirstName" ColumnName="usrFirstName" />
+                <ScalarProperty Name="usrLastName" ColumnName="usrLastName" />
+                <ScalarProperty Name="usrEmail" ColumnName="usrEmail" />
+                <ScalarProperty Name="usrPasswd" ColumnName="usrPasswd" />
+                <ScalarProperty Name="usrDOB" ColumnName="usrDOB" />
+                <ScalarProperty Name="usrCity" ColumnName="usrCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTables">
+            <EntityTypeMapping TypeName="ProjectModel.ProductTable">
+              <MappingFragment StoreEntitySet="ProductTable">
+                <ScalarProperty Name="Productid" ColumnName="Productid" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductPriceRange" ColumnName="ProductPriceRange" />
+                <ScalarProperty Name="ProductCapacityRange" ColumnName="ProductCapacityRange" />
+                <ScalarProperty Name="ProductLocation" ColumnName="ProductLocation" />
+                <ScalarProperty Name="ProductImagePath" ColumnName="ProductImagePath" />
+                <ScalarProperty Name="ProductImagePath1" ColumnName="ProductImagePath1" />
+                <ScalarProperty Name="ProductImagePath2" ColumnName="ProductImagePath2" />
+                <ScalarProperty Name="ProductImagePath3" ColumnName="ProductImagePath3" />
+                <ScalarProperty Name="ProductImagePath4" ColumnName="ProductImagePath4" />
+                <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRegistrations">
+            <EntityTypeMapping TypeName="ProjectModel.UserRegistration">
+              <MappingFragment StoreEntitySet="UserRegistration">
+                <ScalarProperty Name="srno" ColumnName="srno" />
+                <ScalarProperty Name="usrid" ColumnName="usrid" />
+                <ScalarProperty Name="Productid" ColumnName="Productid" />
+                <ScalarProperty Name="ProductLocation" ColumnName="ProductLocation" />
+                <ScalarProperty Name="ratings" ColumnName="ratings" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usrMemberTables">
+            <EntityTypeMapping TypeName="ProjectModel.usrMemberTable">
+              <MappingFragment StoreEntitySet="usrMemberTable">
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="usrid" ColumnName="usrid" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MemberEvent" ColumnName="MemberEvent" />
+                <ScalarProperty Name="MemberDate" ColumnName="MemberDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Halls_data">
+            <EntityTypeMapping TypeName="ProjectModel.Halls_data">
+              <MappingFragment StoreEntitySet="Halls_data">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductPriceRange" ColumnName="ProductPriceRange" />
+                <ScalarProperty Name="ProductCapacityRange" ColumnName="ProductCapacityRange" />
+                <ScalarProperty Name="ProductLocation" ColumnName="ProductLocation" />
+                <ScalarProperty Name="ProductAddress" ColumnName="ProductAddress" />
+                <ScalarProperty Name="ProductImagePath" ColumnName="ProductImagePath" />
+                <ScalarProperty Name="ProductImagePath1" ColumnName="ProductImagePath1" />
+                <ScalarProperty Name="ProductImagePath2" ColumnName="ProductImagePath2" />
+                <ScalarProperty Name="ProductImagePath3" ColumnName="ProductImagePath3" />
+                <ScalarProperty Name="ProductImagePath4" ColumnName="ProductImagePath4" />
+                <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
